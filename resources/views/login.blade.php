@@ -15,16 +15,21 @@
 </div>
 
 <div class="caja1">
-<form method="post" action="login.php">
+<form method="post" action="{{ route('identificacion') }}">
 <div class="formtlo"> Inicio de Sesión</div>
 <img src="/login/img/usuariomujer.png">
 <img src="/login/img/usuariohombre.png">
 <div class="ub1">&#128273; Ingresar usuario</div>
 <input type="text" name="txtusuario" placeholder="Ingresar usuario...">
-<div class="ub1">&#128274; Ingresar contraseñ<address></address></div>
+<div class="ub1">&#128274; Ingresar contraseña<address></address></div>
 
-<input type="password" name="txtpassword" id="txtpassword" placeholder="Ingresar password...">
-
+<input class="form-control @error('password') is-invalid @enderror" type="password" name="txtpassword" id="txtpassword" placeholder="Ingresar password..."id="password" name="password"  value="{{old('password')}}"/>
+@error('password')
+<span class="invalid-feedback" role="alert">
+  <strong>{{$message}}</strong>
+</span>
+ @enderror
+ 
 <div class="ub1">
 <input type="checkbox" onclick="verpassword()" >Mostrar contraseña
  </div>
